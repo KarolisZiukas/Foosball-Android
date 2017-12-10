@@ -4,12 +4,14 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using System.Json;
+using Newtonsoft.Json;
 using System.Net;
 using System;
 using System.Threading.Tasks;
 using Android.Media;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
+using System.Data.SqlClient;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace Foosball_Android
 {
@@ -21,7 +23,8 @@ namespace Foosball_Android
         MediaPlayer _mediaPlayer;
         TextView redTeamTextView;
         TextView blueTeamTextView;
-        
+        Button openDataTableBt;
+        Button openDataBaseBt;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -36,7 +39,7 @@ namespace Foosball_Android
             redTeamTextView.Click += async (sender, e) =>
             {
 
-                string url = "http://172.26.21.75:5000/api/values";
+                string url = "http://192.168.1.102:5000/api/scores";
                 JsonValue json = await Fetchdata(url);
 
             };
@@ -54,18 +57,33 @@ namespace Foosball_Android
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
             request.ContentType = "application/json";
             request.Method = "GET";
+            
             using (WebResponse response = await request.GetResponseAsync())
             {
 
                 using (System.IO.Stream stream = response.GetResponseStream())
 
                 {
+
+
+                    ScoreModel scoreModel = new ScoreModel();
+                    
                     JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Toast.MakeText(this.Activity, jsonDoc.ToString(), ToastLength.Short).Show();
+
+                    foreach (var jjjson in jsonDoc)
+                    {
+                      var result = JsonConvert.DeserializeObject<ScoreModel>(jjjson.ToString());
+                        redTeamTextView.Text = "" + result.redTeamScore;
+                        blueTeamTextView.Text = "" + result.blueTeamScore;
+
+                    }
+                    
                     return jsonDoc;
                 }
 
             }
         }
+
+       
     }
 }
