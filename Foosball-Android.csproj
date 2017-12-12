@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoUpdate.cs" />
     <Compile Include="DataTableFragmentcs.cs" />
     <Compile Include="GoalTypes.cs" />
     <Compile Include="MainActivity.cs" />

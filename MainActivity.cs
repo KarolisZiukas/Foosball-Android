@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 namespace Foosball_Android
 {
     [Activity(Label = "Foosball_Android", MainLauncher = true)]
-    public class MainActivity : Activity
+    public class MainActivity <T> : Activity
     {
         
 
