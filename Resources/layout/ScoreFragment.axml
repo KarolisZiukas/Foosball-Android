@@ -4,6 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/open_dataTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open data table"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/open_dataBase"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open data base"
+            android:visibility="gone" />
+    </RelativeLayout>
     <TextView
         android:id="@+id/red_team_text_view"
         android:layout_width="wrap_content"
@@ -14,12 +31,10 @@
         android:text="0"
         android:textSize="128dp"
         android:textColor="#F44336" />
-  <View
-    android:layout_width ="match_parent"
-    android:layout_height="1dp"
-    android:background="@android:color/background_dark"
-    />
-  
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark" />
     <TextView
         android:id="@+id/blue_team_text_view"
         android:layout_width="wrap_content"
@@ -27,6 +42,6 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:text="0"
-        android:textSize="128dp"
+        android:textSize="128sp"
         android:textColor="#2196F3" />
 </LinearLayout>

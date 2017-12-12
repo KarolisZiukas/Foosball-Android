@@ -14,7 +14,9 @@ namespace Foosball_Android
 {
     public class ScoreModel
     {
-        public String RedTeam { get; set; }
-        public String BlueTeam { get; set; }
+        public int id { get; set; }
+        public int redTeamScore { get; set; }
+        public int blueTeamScore { get; set; }
+
     }
 }
