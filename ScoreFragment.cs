@@ -24,7 +24,7 @@ namespace Foosball_Android
         TextView redTeamTextView;
         TextView blueTeamTextView;
         Button openDataTableBt;
-        Button openDataBaseBt;
+        //Button openDataBaseBt;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -34,15 +34,24 @@ namespace Foosball_Android
             View view = inflater.Inflate(Resource.Layout.ScoreFragment, null);
             redTeamTextView = view.FindViewById<TextView>(Resource.Id.red_team_text_view);
             blueTeamTextView = view.FindViewById<TextView>(Resource.Id.blue_team_text_view);
-
+            openDataTableBt = view.FindViewById<Button>(Resource.Id.open_dataTable);
+            //AutoUpdate.setTimer();
             //ToDo Karolis: await/async
-            redTeamTextView.Click += async (sender, e) =>
+            //redTeamTextView.Click += async (sender, e) =>
+            //{
+
+            //    //string url = "http://172.24.2.174:5000/api/scores";
+            //    //JsonValue json = await Fetchdata(url);
+
+            //};
+            openDataTableBt.Click += delegate
             {
 
-                string url = "http://192.168.1.102:5000/api/scores";
-                JsonValue json = await Fetchdata(url);
-
+                FragmentTransaction fragmentTransaction = FragmentManager.BeginTransaction();
+                fragmentTransaction.Add(Resource.Id.main_frame_layout, new ScoreListFragment()).AddToBackStack(null);
+                fragmentTransaction.Commit();
             };
+
 
             blueTeamTextView.Click += delegate
             {          
