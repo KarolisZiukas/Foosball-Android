@@ -11,8 +11,7 @@
             android:id="@+id/open_dataTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open data table"
-            android:visibility="gone" />
+            android:text="Open History"/>
         <Button
             android:id="@+id/open_dataBase"
             android:layout_alignParentRight="true"

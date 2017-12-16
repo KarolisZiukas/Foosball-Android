@@ -3014,8 +3014,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090083
 			public const int main_frame_layout = 2131296387;
 			
-			// aapt resource value: 0x7f0900ba
-			public const int masked = 2131296442;
+			// aapt resource value: 0x7f0900be
+			public const int masked = 2131296446;
 			
 			// aapt resource value: 0x7f0900a4
 			public const int media_actions = 2131296420;
@@ -3164,6 +3164,9 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f0900a8
 			public const int right_side = 2131296424;
 			
+			// aapt resource value: 0x7f0900b9
+			public const int scores_list_fragment = 2131296441;
+			
 			// aapt resource value: 0x7f09001a
 			public const int screen = 2131296282;
 			
@@ -3269,6 +3272,15 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090011
 			public const int tabMode = 2131296273;
 			
+			// aapt resource value: 0x7f0900ba
+			public const int test_tv = 2131296442;
+			
+			// aapt resource value: 0x7f0900bb
+			public const int test_tv2 = 2131296443;
+			
+			// aapt resource value: 0x7f0900bc
+			public const int test_tv3 = 2131296444;
+			
 			// aapt resource value: 0x7f0900b3
 			public const int text = 2131296435;
 			
@@ -3326,8 +3338,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f09000e
 			public const int view_offset_helper = 2131296270;
 			
-			// aapt resource value: 0x7f0900b9
-			public const int visible = 2131296441;
+			// aapt resource value: 0x7f0900bd
+			public const int visible = 2131296445;
 			
 			// aapt resource value: 0x7f090096
 			public const int volume_item_container = 2131296406;
@@ -3615,16 +3627,22 @@ namespace Foosball_Android
 			public const int ScoreFragment = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int select_dialog_item_material = 2130903105;
+			public const int ScoresList = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int select_dialog_multichoice_material = 2130903106;
+			public const int scoresListItem = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int select_dialog_singlechoice_material = 2130903107;
+			public const int select_dialog_item_material = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int support_simple_spinner_dropdown_item = 2130903108;
+			public const int select_dialog_multichoice_material = 2130903108;
+			
+			// aapt resource value: 0x7f030045
+			public const int select_dialog_singlechoice_material = 2130903109;
+			
+			// aapt resource value: 0x7f030046
+			public const int support_simple_spinner_dropdown_item = 2130903110;
 			
 			static Layout()
 			{
