@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.V7.Widget;
+﻿using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using System.Collections.Generic;
 
 namespace Foosball_Android
 {
     class ScoreListAdapter : Android.Support.V7.Widget.RecyclerView.Adapter
     {
-        string[] masyvas;
 
-        public ScoreListAdapter(string [] masyvas)
+        List<ScoreModel> result;
+
+        public ScoreListAdapter(List<ScoreModel> result)
         {
-            this.masyvas = masyvas;
+            this.result = result;
         }
 
         public override int ItemCount
         {
-            get { return masyvas.Length; }
+            get { return result.Count; }
         }
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             CardHolder cardHolder = holder as CardHolder;
-            cardHolder.ScoreTextView.Text = "" + 0;
+            cardHolder.BlueTeamScoreTextView.Text = "" + result[position].blueTeamScore;
+            cardHolder.RedTeamScoreTextView.Text = "" + result[position].redTeamScore;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -40,11 +34,13 @@ namespace Foosball_Android
 
         class CardHolder : RecyclerView.ViewHolder
         {
-            public TextView ScoreTextView { get; private set; }
+            public TextView RedTeamScoreTextView { get; private set; }
+            public TextView BlueTeamScoreTextView { get; private set; }
 
             public CardHolder(View itemView) : base(itemView)
             {
-                ScoreTextView = itemView.FindViewById<TextView>(Resource.Id.test_tv);
+                RedTeamScoreTextView = itemView.FindViewById<TextView>(Resource.Id.blue_team_history_tv);
+                BlueTeamScoreTextView = itemView.FindViewById<TextView>(Resource.Id.red_team_history_tv);
             }
         }
     }
