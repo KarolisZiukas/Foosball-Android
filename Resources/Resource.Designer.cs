@@ -2855,6 +2855,9 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090020
 			public const int beginning = 2131296288;
 			
+			// aapt resource value: 0x7f0900ba
+			public const int blue_team_history_tv = 2131296442;
+			
 			// aapt resource value: 0x7f090074
 			public const int blue_team_last_match = 2131296372;
 			
@@ -3149,6 +3152,9 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f09005d
 			public const int radio = 2131296349;
 			
+			// aapt resource value: 0x7f0900bc
+			public const int red_team_history_tv = 2131296444;
+			
 			// aapt resource value: 0x7f090073
 			public const int red_team_last_match = 2131296371;
 			
@@ -3272,14 +3278,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090011
 			public const int tabMode = 2131296273;
 			
-			// aapt resource value: 0x7f0900ba
-			public const int test_tv = 2131296442;
-			
 			// aapt resource value: 0x7f0900bb
 			public const int test_tv2 = 2131296443;
-			
-			// aapt resource value: 0x7f0900bc
-			public const int test_tv3 = 2131296444;
 			
 			// aapt resource value: 0x7f0900b3
 			public const int text = 2131296435;

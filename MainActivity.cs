@@ -1,8 +1,11 @@
 ﻿using Android.App;
 using Android.OS;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using SQLite;
+using SQLitePCL;
+using System;
+using System.IO;
+
 namespace Foosball_Android
 {
     [Activity(Label = "Foosball_Android", MainLauncher = true)]
@@ -15,13 +18,11 @@ namespace Foosball_Android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
             loadFragment();
-             
-            //ToDo covariance
-            var listOfElectronicProducts = new List<TotalScore>() { new SimpleGoal(), new FoulGoal(), new AccidentalGoal(), new PenaltyGoal()};
-            int totalPriceOfElectronicProducts = new Utility().CalCulateTotalScore(listOfElectronicProducts);
 
 
         }
+
+  
 
         private void loadFragment()
         {
