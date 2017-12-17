@@ -135,6 +135,7 @@
   <ItemGroup>
     <Compile Include="AutoUpdate.cs" />
     <Compile Include="DataTableFragmentcs.cs" />
+    <Compile Include="EditScoreFragment.cs" />
     <Compile Include="GoalTypes.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -162,6 +163,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\scoresListItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Edit_score_fragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
