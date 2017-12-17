@@ -5,6 +5,8 @@ using SQLite;
 using SQLitePCL;
 using System;
 using System.IO;
+using Android.Views;
+using Android.Widget;
 
 namespace Foosball_Android
 {
@@ -22,7 +24,17 @@ namespace Foosball_Android
 
         }
 
-  
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+ 
+            return base.OnOptionsItemSelected(item);
+        }
 
         private void loadFragment()
         {

@@ -28,9 +28,8 @@ namespace Foosball_Android
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
 
-
-
             View view = inflater.Inflate(Resource.Layout.ScoreFragment, null);
+            SetHasOptionsMenu(true);
             redTeamTextView = view.FindViewById<TextView>(Resource.Id.red_team_text_view);
             blueTeamTextView = view.FindViewById<TextView>(Resource.Id.blue_team_text_view);
             openDataTableBt = view.FindViewById<Button>(Resource.Id.open_dataTable);
@@ -54,9 +53,7 @@ namespace Foosball_Android
             };
             openDataTableBt.Click += delegate
             {
-                FragmentTransaction fragmentTransaction = FragmentManager.BeginTransaction();
-                fragmentTransaction.Replace(Resource.Id.main_frame_layout, new ScoreListFragment()).AddToBackStack(null);
-                fragmentTransaction.Commit();
+                loadFragment(0);
             };
 
 
@@ -69,7 +66,31 @@ namespace Foosball_Android
             return view;
         }
 
-     
+        private void loadFragment(int whatToShow)
+        {
+            FragmentTransaction fragmentTransaction = FragmentManager.BeginTransaction();
+            fragmentTransaction.Replace(Resource.Id.main_frame_layout, new ScoreListFragment(whatToShow)).AddToBackStack(null);
+            fragmentTransaction.Commit();
+
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_preferences :
+                    loadFragment(1);
+                    break;
+                case Resource.Id.menu_preferences2:
+                    loadFragment(2);
+                    break;
+            }
+               return base.OnOptionsItemSelected(item);
+        }
+
+
+
+
 
         private async Task<JsonValue> Fetchdata(string url)
         {
