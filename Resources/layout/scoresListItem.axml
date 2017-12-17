@@ -13,39 +13,41 @@
         card_view:cardElevation="6dp"
         card_view:cardUseCompatPadding="true"
         card_view:cardCornerRadius="5dp">
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <TextView
-                android:id="@+id/blue_team_history_tv"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:textSize="128sp"
-                android:textColor="#2196F3"
-                android:text="0" />
-            <TextView
-                android:id="@+id/test_tv2"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:textSize="128sp"
-                android:textColor="#000000"
-                android:text=":" />
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/red_team_history_tv"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:textSize="128sp"
-                android:textColor="#F44336"
-                android:text="0" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="top|center_horizontal"
+            android:textSize="24sp"
+            android:textColor="#2196F3"
+            android:text="0" />
+        <TextView
+            android:id="@+id/blue_team_history_tv"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="left"
+            android:textSize="128sp"
+            android:textColor="#2196F3"
+            android:text="0" />
+        <TextView
+            android:id="@+id/test_tv2"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="128sp"
+            android:textColor="#000000"
+            android:text=":" />
+        <TextView
+            android:id="@+id/red_team_history_tv"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:textSize="128sp"
+            android:textColor="#F44336"
+            android:text="0" />
     </android.support.v7.widget.CardView>
 </FrameLayout>

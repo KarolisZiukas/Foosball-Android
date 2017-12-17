@@ -2858,8 +2858,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090084
 			public const int blue_team_et = 2131296388;
 			
-			// aapt resource value: 0x7f0900bf
-			public const int blue_team_history_tv = 2131296447;
+			// aapt resource value: 0x7f0900c0
+			public const int blue_team_history_tv = 2131296448;
 			
 			// aapt resource value: 0x7f090074
 			public const int blue_team_last_match = 2131296372;
@@ -2917,6 +2917,9 @@ namespace Foosball_Android
 			
 			// aapt resource value: 0x7f090054
 			public const int customPanel = 2131296340;
+			
+			// aapt resource value: 0x7f0900bf
+			public const int date_tv = 2131296447;
 			
 			// aapt resource value: 0x7f090062
 			public const int decor_content_parent = 2131296354;
@@ -3026,11 +3029,17 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090088
 			public const int main_frame_layout = 2131296392;
 			
-			// aapt resource value: 0x7f0900c3
-			public const int masked = 2131296451;
+			// aapt resource value: 0x7f0900c4
+			public const int masked = 2131296452;
 			
 			// aapt resource value: 0x7f0900a9
 			public const int media_actions = 2131296425;
+			
+			// aapt resource value: 0x7f0900c5
+			public const int menu_preferences = 2131296453;
+			
+			// aapt resource value: 0x7f0900c6
+			public const int menu_preferences2 = 2131296454;
 			
 			// aapt resource value: 0x7f090022
 			public const int middle = 2131296290;
@@ -3167,8 +3176,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090083
 			public const int red_team_et = 2131296387;
 			
-			// aapt resource value: 0x7f0900c1
-			public const int red_team_history_tv = 2131296449;
+			// aapt resource value: 0x7f0900c2
+			public const int red_team_history_tv = 2131296450;
 			
 			// aapt resource value: 0x7f090073
 			public const int red_team_last_match = 2131296371;
@@ -3293,8 +3302,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f090011
 			public const int tabMode = 2131296273;
 			
-			// aapt resource value: 0x7f0900c0
-			public const int test_tv2 = 2131296448;
+			// aapt resource value: 0x7f0900c1
+			public const int test_tv2 = 2131296449;
 			
 			// aapt resource value: 0x7f0900b8
 			public const int text = 2131296440;
@@ -3353,8 +3362,8 @@ namespace Foosball_Android
 			// aapt resource value: 0x7f09000e
 			public const int view_offset_helper = 2131296270;
 			
-			// aapt resource value: 0x7f0900c2
-			public const int visible = 2131296450;
+			// aapt resource value: 0x7f0900c3
+			public const int visible = 2131296451;
 			
 			// aapt resource value: 0x7f09009b
 			public const int volume_item_container = 2131296411;
@@ -3668,6 +3677,22 @@ namespace Foosball_Android
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0f0000
+			public const int menu = 2131689472;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

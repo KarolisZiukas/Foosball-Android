@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:id="@+id/menu_preferences"
+      android:showAsAction="never"
+      android:title="Show first 10" />
+  <item
+      android:id="@+id/menu_preferences2"
+      android:showAsAction="never"
+      android:title="Show from 10th" />
+</menu>

@@ -28,6 +28,7 @@ namespace Foosball_Android
             cancelEditBt = view.FindViewById<Button>(Resource.Id.cancel_score_edit_bt);
             deleteScoreBt = view.FindViewById<Button>(Resource.Id.delete_score_edit_bt);
             Bundle bundle = this.Arguments;
+
             if (bundle != null)
             {
                 editBlueTeamScore.Text = "" + bundle.GetInt("blueTeam");
@@ -53,6 +54,29 @@ namespace Foosball_Android
             return view;
         }
 
+        public static string UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            //System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            //dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            //return dtDateTime;
+            // This is an example of a UNIX timestamp for the date/time 11-04-2005 09:25.
+            double timestamp = 1113211532;
+
+            // First make a System.DateTime equivalent to the UNIX Epoch.
+            System.DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+
+            // Add the number of seconds in UNIX timestamp to be converted.
+            dateTime = dateTime.AddSeconds(timestamp);
+
+            // The dateTime now contains the right date/time so to format the string,
+            // use the standard formatting methods of the DateTime object.
+            string printDate;
+            return printDate = dateTime.ToShortDateString() + " " + dateTime.ToShortTimeString();
+
+            // Print the date and time
+        }
+
         private void deleteScore()
         {
             try
@@ -61,7 +85,6 @@ namespace Foosball_Android
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<ScoreModel>(); 
                 db.Query<ScoreModel>(String.Format("DELETE FROM [ScoreModel] WHERE [id] = {0}", id));
-
                 FragmentManager fragmentManager = Activity.FragmentManager;
                 fragmentManager.PopBackStack();
             }
@@ -75,6 +98,7 @@ namespace Foosball_Android
         {
             try
             {
+
                 string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "scoresDB.db3"); //Call Database  
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<ScoreModel>(); //Call Table
@@ -98,5 +122,6 @@ namespace Foosball_Android
             fragmentManager.PopBackStack();
          
         }
+       
     }
 }

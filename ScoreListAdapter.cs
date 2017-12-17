@@ -25,6 +25,7 @@ namespace Foosball_Android
             CardHolder cardHolder = holder as CardHolder;
             cardHolder.BlueTeamScoreTextView.Text = "" + result[position].blueTeamScore;
             cardHolder.RedTeamScoreTextView.Text = "" + result[position].redTeamScore;
+            cardHolder.DateTextView.Text = stupidDateFormating(result[position].id);
             cardHolder.BlueTeamScoreTextView.Click += delegate
             {
                 Toast.MakeText(Android.App.Application.Context, "aloha", ToastLength.Short);
@@ -51,12 +52,24 @@ namespace Foosball_Android
         {
             public TextView RedTeamScoreTextView { get; private set; }
             public TextView BlueTeamScoreTextView { get; private set; }
-
+            public TextView DateTextView { get; set; }
             public CardHolder(View itemView) : base(itemView)
             {
                 RedTeamScoreTextView = itemView.FindViewById<TextView>(Resource.Id.blue_team_history_tv);
                 BlueTeamScoreTextView = itemView.FindViewById<TextView>(Resource.Id.red_team_history_tv);
+                DateTextView = itemView.FindViewById<TextView>(Resource.Id.date_tv);
             }
+        }
+
+        public string stupidDateFormating(long id)
+        {
+            long year = id / 100000000000000;
+            long month = id / 1000000000000 % 100;
+            long day = id / 10000000000 % 100;
+            long hour = id / 100000000 % 100;
+            long minute = id / 1000000 % 100;
+            string date = string.Format("{0}-{1}-{2} {3}:{4}", year, month, day, hour, minute);
+            return date;
         }
     }
 }
