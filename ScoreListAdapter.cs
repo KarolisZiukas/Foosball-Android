@@ -9,10 +9,11 @@ namespace Foosball_Android
     {
 
         List<ScoreModel> result;
-
-        public ScoreListAdapter(List<ScoreModel> result)
+        OnCardClickListener onCardClickListener;
+        public ScoreListAdapter(List<ScoreModel> result, OnCardClickListener onCardClickListener)
         {
             this.result = result;
+            this.onCardClickListener = onCardClickListener;
         }
 
         public override int ItemCount
@@ -24,12 +25,26 @@ namespace Foosball_Android
             CardHolder cardHolder = holder as CardHolder;
             cardHolder.BlueTeamScoreTextView.Text = "" + result[position].blueTeamScore;
             cardHolder.RedTeamScoreTextView.Text = "" + result[position].redTeamScore;
+            cardHolder.BlueTeamScoreTextView.Click += delegate
+            {
+                Toast.MakeText(Android.App.Application.Context, "aloha", ToastLength.Short);
+
+            };
+            cardHolder.ItemView.Click += delegate
+            {
+               onCardClickListener.OnItemClick(result[cardHolder.AdapterPosition].redTeamScore, result[cardHolder.AdapterPosition].blueTeamScore, result[cardHolder.AdapterPosition].id);
+            };
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.scoresListItem, parent, false);
             return new CardHolder(view);
+        }
+
+        public interface OnCardClickListener
+        {
+            void OnItemClick(int redTeam, int blueTeam, long id);
         }
 
         class CardHolder : RecyclerView.ViewHolder

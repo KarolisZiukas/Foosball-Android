@@ -12,7 +12,7 @@ using Android.Media;
 using SQLite;
 using System.IO;
 
-namespace Foosball_Android
+namespace Foosball_Android 
 {
 
 
@@ -45,16 +45,17 @@ namespace Foosball_Android
 
                 //autoUpdate.UpdateEventAsync(sender, e);
                 //autoUpdate.showWhatYouGot();
-                insertEndResult();
-            //    //string url = "http://172.24.2.174:5000/api/scores";
-            //    //JsonValue json = await Fetchdata(url);
+
+
+                 insertEndResult();
+                //    //string url = "http://172.24.2.174:5000/api/scores";
+                //    //JsonValue json = await Fetchdata(url);
 
             };
             openDataTableBt.Click += delegate
             {
-
                 FragmentTransaction fragmentTransaction = FragmentManager.BeginTransaction();
-                fragmentTransaction.Add(Resource.Id.main_frame_layout, new ScoreListFragment()).AddToBackStack(null);
+                fragmentTransaction.Replace(Resource.Id.main_frame_layout, new ScoreListFragment()).AddToBackStack(null);
                 fragmentTransaction.Commit();
             };
 
@@ -107,7 +108,7 @@ namespace Foosball_Android
         {
             var output = "";
             output += "Creating Databse if it doesnt exists";
-            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "scores.db3"); //Create New Database  
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "scoresDB.db3"); //Create New Database  
             var db = new SQLiteConnection(dpPath);
             output += "\n Database Created....";
             return output;
@@ -117,19 +118,24 @@ namespace Foosball_Android
         {
             try
             {
-                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "scores.db3");
+                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "scoresDB.db3");
                 var db = new SQLiteConnection(dpPath);
                 db.CreateTable<ScoreModel>();
                 ScoreModel tbl = new ScoreModel();
-                db.Query<ScoreModel>("INSERT INTO [ScoreModel] VALUES (1, 5, 6)");  //here will be final result
-                Toast.MakeText(Application.Context, "Score added", ToastLength.Short).Show();
+
+                Toast.MakeText(Application.Context, " "+ Int64.Parse(GetTimestamp(DateTime.Now)), ToastLength.Short).Show();
+                long id = Int64.Parse(GetTimestamp(DateTime.Now));
+                db.Query<ScoreModel>(String.Format("INSERT INTO [ScoreModel] VALUES ({0}, 2, 2)", id));  //here will be final result
             }
             catch (Exception ex)
             {
                 Toast.MakeText(Application.Context, ex.ToString(), ToastLength.Short).Show();
             }
         }
-
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
+        }
 
 
     }
